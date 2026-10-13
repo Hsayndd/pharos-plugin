@@ -1,0 +1,20 @@
+#!/bin/sh
+# Pharos launcher for macOS and Linux (ADR-0027): runs this machine's binary.
+#   engine/pharos core mcp            the MCP server
+#   engine/pharos claude-code read    a Claude Code hook
+# The plugin starts it as `/bin/sh engine/pharos ...`, so it needs no execute bit.
+set -e
+here=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
+case "$(uname -s)" in
+  Darwin) os=darwin ;;
+  Linux) os=linux ;;
+  *) echo "Pharos: unsupported system $(uname -s)" >&2; exit 1 ;;
+esac
+case "$(uname -m)" in
+  arm64 | aarch64) arch=arm64 ;;
+  x86_64 | amd64) arch=x64 ;;
+  *) echo "Pharos: unsupported machine $(uname -m)" >&2; exit 1 ;;
+esac
+name=$1
+shift
+exec "$here/$os-$arch/pharos-$name" "$@"
