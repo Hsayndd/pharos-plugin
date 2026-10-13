@@ -1,0 +1,18 @@
+{
+  "name": "pharos",
+  "version": "0.2.0-beta.2",
+  "description": "Local context engineering for Claude Code: a deterministic symbol graph, one-call structural queries and budget-bounded context plans. Nothing leaves the machine.",
+  "author": {
+    "name": "Pharos",
+    "url": "https://github.com/Hsayndd/pharos-plugin"
+  },
+  "homepage": "https://github.com/Hsayndd/pharos-plugin",
+  "license": "Apache-2.0",
+  "keywords": [
+    "context",
+    "code-graph",
+    "mcp",
+    "tree-sitter",
+    "local-first"
+  ]
+}
