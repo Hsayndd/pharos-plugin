@@ -1,0 +1,16 @@
+{
+  "name": "pharos",
+  "owner": {
+    "name": "Pharos",
+    "url": "https://github.com/Hsayndd/pharos-plugin"
+  },
+  "description": "Pharos for Claude Code (macOS and Linux): a local symbol graph, one-call structural queries and budgeted context plans.",
+  "plugins": [
+    {
+      "name": "pharos",
+      "source": "./",
+      "description": "Local context engineering for Claude Code: a deterministic symbol graph, one-call structural queries and budget-bounded context plans. Nothing leaves the machine.",
+      "version": "0.2.0-beta.2"
+    }
+  ]
+}

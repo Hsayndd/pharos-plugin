@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "pharos": {
+      "command": "/bin/sh",
+      "args": [
+        "${CLAUDE_PLUGIN_ROOT}/engine/pharos",
+        "core",
+        "mcp"
+      ],
+      "env": {
+        "PHAROS_REPO": "${CLAUDE_PROJECT_DIR}"
+      }
+    }
+  }
+}
