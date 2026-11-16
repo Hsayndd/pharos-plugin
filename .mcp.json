@@ -1,0 +1,27 @@
+{
+  "mcpServers": {
+    "pharos": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/engine/pharos-core.exe",
+      "args": [
+        "mcp",
+        "--tools",
+        "core"
+      ],
+      "env": {
+        "PHAROS_REPO": "${CLAUDE_PROJECT_DIR}"
+      },
+      "alwaysLoad": true
+    },
+    "pharos-more": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/engine/pharos-core.exe",
+      "args": [
+        "mcp",
+        "--tools",
+        "more"
+      ],
+      "env": {
+        "PHAROS_REPO": "${CLAUDE_PROJECT_DIR}"
+      }
+    }
+  }
+}

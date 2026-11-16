@@ -1,0 +1,85 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/engine/pharos-claude-code.exe",
+            "args": [
+              "guard"
+            ]
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Grep|Glob",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/engine/pharos-claude-code.exe",
+            "args": [
+              "read"
+            ],
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/engine/pharos-claude-code.exe",
+            "args": [
+              "format"
+            ]
+          }
+        ]
+      },
+      {
+        "matcher": "mcp__.*pharos.*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/engine/pharos-claude-code.exe",
+            "args": [
+              "tool"
+            ],
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/engine/pharos-claude-code.exe",
+            "args": [
+              "stop"
+            ]
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "${CLAUDE_PLUGIN_ROOT}/engine/pharos-claude-code.exe",
+            "args": [
+              "prompt"
+            ],
+            "timeout": 2
+          }
+        ]
+      }
+    ]
+  }
+}
