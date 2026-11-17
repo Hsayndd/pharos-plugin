@@ -1,0 +1,63 @@
+name: Wrong or missing answer
+description: A query listed a use that is not real, missed one that is, or a plan left out the code that mattered.
+labels: ["accuracy"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        These are the reports that improve Pharos most. A short public example we can run is ideal; otherwise describe the shape of the code.
+        Please remove anything private before you submit: this issue is public. First check the limits in HOW_IT_WORKS.md: JSX uses, re-exports, dependency injection, calls inside macros and dynamic calls are known blind spots.
+  - type: input
+    id: version
+    attributes:
+      label: Pharos version
+      placeholder: "1.1.2"
+    validations:
+      required: true
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language of the code
+      options:
+        - TypeScript
+        - JavaScript
+        - Python
+        - Rust
+        - C
+        - C++
+        - CUDA
+        - Other (heuristic tier)
+    validations:
+      required: true
+  - type: dropdown
+    id: kind
+    attributes:
+      label: What went wrong
+      options:
+        - A listed use is not real (wrong link)
+        - A real use is missing
+        - The wrong declaration was chosen
+        - A context plan left out the code that mattered
+        - Something else
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: The question
+      description: The query kind and name, or the task and budget for a plan.
+      placeholder: "callers of parseConfig in src/config.ts"
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What the answer should have been
+      description: The file and line of the use that is wrong or missing, and the code around it if you can share it.
+    validations:
+      required: true
+  - type: input
+    id: repo
+    attributes:
+      label: A public repository and commit where it happens (optional)
+      placeholder: "https://github.com/org/repo at 1a2b3c4"

@@ -1,0 +1,54 @@
+name: Bug report
+description: Pharos failed, crashed, or did not install.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting. Please remove anything private (paths, names, code) before you submit: this issue is public.
+        For a wrong or missing answer, use the "Wrong or missing answer" template instead. For a security problem, write privately to houssen.kanaan@gmail.com.
+  - type: input
+    id: version
+    attributes:
+      label: Pharos version
+      description: From `/plugin` in Claude Code, or `pharos-core.exe --version`.
+      placeholder: "1.1.2"
+    validations:
+      required: true
+  - type: dropdown
+    id: os
+    attributes:
+      label: Operating system
+      options:
+        - Windows x64
+        - macOS (beta)
+        - Linux (beta)
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: claude-code
+    attributes:
+      label: Claude Code version
+      placeholder: "2.1.296"
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected, and what happened instead.
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Error messages or log lines
+      description: The exact text, with private paths replaced.
+      render: text
+  - type: textarea
+    id: status
+    attributes:
+      label: index.status
+      description: If Pharos runs, the counts from asking "Use index.status". Paths can be removed.
+      render: json

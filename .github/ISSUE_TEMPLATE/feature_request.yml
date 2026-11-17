@@ -1,0 +1,22 @@
+name: Idea or request
+description: A language, a question Pharos should answer, or anything that would help.
+labels: ["idea"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What you were trying to do
+      description: The task, and where Pharos fell short or got in the way.
+    validations:
+      required: true
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would help
+    validations:
+      required: true
+  - type: input
+    id: setup
+    attributes:
+      label: Languages and operating system
+      placeholder: "Go and TypeScript, Windows x64"
